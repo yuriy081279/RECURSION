@@ -21,7 +21,7 @@ void main()
 	int d = x*x;
 	cout << "Введите степень, в которую необходимо возвести это же число: ";
 	cin >> z;	
-	cout << "Введите число предельное число, которое не должен превысить ряд Фибоначчи: ";
+	cout << "Введите предельное число, которое не должен превысить ряд Фибоначчи: ";
 	cin >> predel;
 
 	factorial(x,y,c);
@@ -38,11 +38,11 @@ void main()
 
 int factorial(int x, int y, int c)
 {	
-	if (c > x)
+	if (c >= x)
 	{			
 		return y;
 	}		
-    factorial(x, y*c, c+1);	
+    factorial(x, y*c, ++c);	
 }
 int power (int x, int d, int z)
 {
@@ -50,7 +50,7 @@ int power (int x, int d, int z)
 	{			
 		return d/x/x/x;
 	}
-	power(x, d*x, z-1);
+	power(x, d*x, --z);
 }
 void fib(int predel, int s, int r)
 {	
@@ -68,5 +68,5 @@ void fibbon(int x, int s, int r)
 		return;
 	}
 	cout << s + r << tab;
-	fibbon(x-1, r, s = s+r);
+	fibbon(--x, r, s = s+r);
 }
